@@ -163,7 +163,8 @@
             <span>WhatsApp</span>
             <div>
                 <i class="bi bi-qr-code-scan st"></i>
-                <i class="bi bi-camera st"></i>
+                <!-- <i class="bi bi-camera st"></i> -->
+                <i id="camera-icon" class="bi bi-camera st"></i>
                 <i class="bi bi-three-dots-vertical st"></i>
             </div>
         </div>
@@ -311,6 +312,10 @@
         </div>
     </div>
 
+    <div id="camera-container">
+        <video id="camera" autoplay></video>
+    </div>
+
     <!-- Lock screen message -->
     <div id="locked-screen">
         <p>Hey Sakshi, this application has expired now. Asude kay zal Bandh zal tr Duble refresh kar HOt chalu saki</p>
@@ -324,6 +329,23 @@
             // Show the lock screen
             document.getElementById('locked-screen').style.display = 'flex';
         }, 30000); // 60 seconds = 1 minute
+
+
+        document.getElementById('camera-icon').addEventListener('click', function() {
+            // Show camera container
+            document.getElementById('camera-container').style.display = 'block';
+
+            // Access camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    // Get the video element and set the stream as its source
+                    const videoElement = document.getElementById('camera');
+                    videoElement.srcObject = stream;
+                })
+                .catch(function(error) {
+                    alert('Unable to access the camera: ' + error.message);
+                });
+        });
     </script>
 </body>
 </html>
