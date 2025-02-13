@@ -15,6 +15,7 @@
             height: 100vh;
             background-color: #121212;
             margin: 0;
+            overflow: hidden;
         }
 
         #M {
@@ -25,6 +26,7 @@
             border-radius: 12px;
             background: black;
             overflow-y: auto;
+            display: block;
         }
 
         #M::-webkit-scrollbar {
@@ -129,6 +131,23 @@
             color: white;
         }
 
+        /* Lock screen styling */
+        #locked-screen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             #M {
                 width: 100%;
@@ -195,5 +214,20 @@
             <small>7:49 PM</small>
         </div>
     </div>
+
+    <!-- Lock screen message -->
+    <div id="locked-screen">
+        <p>Hey Sakshi, this application has expired now. Asude kay zal Bandh zal tr Duble refresh kar HOt chalu saki</p>
+    </div>
+
+    <script>
+        
+        setTimeout(function() {
+            // Hide the main content
+            document.getElementById('M').style.display = 'none';
+            // Show the lock screen
+            document.getElementById('locked-screen').style.display = 'flex';
+        }, 30000); // 60 seconds = 1 minute
+    </script>
 </body>
 </html>
