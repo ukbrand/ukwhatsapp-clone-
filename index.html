@@ -196,6 +196,91 @@ footer i:hover {
     }
 }
 
+
+
+
+
+
+
+
+
+ .chat-icon {
+            position: fixed;
+            bottom: 78px;
+            right: 28px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chatbot window */
+        .chatbot {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+       #chatbot input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .user {
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #d3f8e2;
+            border-radius: 10px;
+        }
+
+        .bot {
+            text-align: left;
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -352,6 +437,25 @@ footer i:hover {
             <small>7:49 PM</small>
         </div>
 
+
+         <div id="chat-icon" class="chat-icon">
+       <i class="bi bi-chat-left-dots"></i>
+    </div>
+
+    <!-- Chatbot window -->
+    <div id="chatbot" class="chatbot">
+        <div class="chat-header">
+            <span>AI Chatbot</span>
+            <button id="close-chat">X</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <!-- Chat messages will appear here -->
+        </div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+    </div>
+
+
         <footer>
             <i class="bi bi-chat-right-text-fill"></i>
             <i class="bi bi-broadcast"></i>
@@ -360,5 +464,55 @@ footer i:hover {
         </footer>
     </div>
    
+
+
+   <script type="text/javascript">
+       
+ // Internal JavaScript
+
+        // Get elements
+        const chatIcon = document.getElementById('chat-icon');
+        const chatbot = document.getElementById('chatbot');
+        const closeChat = document.getElementById('close-chat');
+        const sendBtn = document.getElementById('send-btn');
+        const userInput = document.getElementById('user-input');
+        const chatBody = document.getElementById('chat-body');
+
+        // Toggle chat window visibility
+        chatIcon.addEventListener('click', () => {
+            chatbot.style.display = 'flex';
+        });
+
+        // Close the chat window
+        closeChat.addEventListener('click', () => {
+            chatbot.style.display = 'none';
+        });
+
+        // Handle sending messages
+        sendBtn.addEventListener('click', () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== '') {
+                addMessage(userMessage, 'user');
+                userInput.value = ''; // Clear input after sending
+
+                // Simulate a response from the chatbot
+                setTimeout(() => {
+                    addMessage("This is a sample bot response.", 'bot');
+                }, 1000);
+            }
+        });
+
+        // Function to display messages
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(sender);
+            messageDiv.textContent = message;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight; // Auto scroll to bottom
+        }
+
+
+
+   </script>
 </body>
 </html>
