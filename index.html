@@ -7,6 +7,8 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+
     <style>
         body {
             display: flex;
@@ -87,7 +89,7 @@
         }
 
         li {
-            color: #949191;
+            color: #ffffff;
             list-style-type: none;
             background: #363030;
             padding: 7px;
@@ -143,20 +145,19 @@
 
 
       /* Footer Styles */
-footer {
+      footer {
     width: 100%;
     background-color: rgb(4, 0, 0);
-    position:sticky;
+    position: fixed;
     bottom: 0;
     left: 0;
-    top: 613px;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
-     
     z-index: 100;
 }
 
+/* Footer Icons */
 footer i {
     font-size: 24px;
     color: #f8f2f2;
@@ -170,12 +171,28 @@ footer i:hover {
 /* Responsive Footer Styles */
 @media (max-width: 768px) {
     footer {
-        flex-direction: column;
-        padding: 10px;
+        flex-direction: row; /* Row layout for footer on mobile */
+        padding: 10px 0;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
     }
 
     footer i {
-        margin-bottom: 8px; /* Space between icons on mobile */
+        margin: 5px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        flex-direction: row; /* Ensure icons remain horizontally aligned */
+        padding: 10px 0;
+    }
+
+    footer i {
+        font-size: 20px;
+        margin: 0 5px;
     }
 }
 
