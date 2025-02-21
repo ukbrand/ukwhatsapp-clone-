@@ -18,6 +18,9 @@
             background-color: #121212;
             margin: 0;
             overflow: hidden;
+
+
+
         }
 
         #M {
@@ -279,15 +282,7 @@ footer i:hover {
 
 
 
-         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
-            margin: 0;
-            overflow: hidden;
-        }
+         
 
         #M {
             border: 2px solid black;
@@ -298,6 +293,8 @@ footer i:hover {
             background: black;
             overflow-y: auto;
             display: block;
+            margin: 0px;
+            padding: 0px;
         }
 
         #M::-webkit-scrollbar {
@@ -511,6 +508,34 @@ footer i:hover {
                 border-radius: 0;
             }
         }
+.message {
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Sent messages (from 'You') */
+.sent {
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+    display: block;
+}
+
+#chatMessages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Default alignment for received messages */
+    max-height: 59vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+
 
 
     </style>
@@ -669,7 +694,7 @@ footer i:hover {
         const chatInput = document.getElementById('chatInput');
         const contactsSection = document.getElementById('M');  // The contact list container
         const backButton = document.getElementById('backButton');
-        
+        const k=chatContactName.innerHTML;
         let currentContact = null;
 
         // Function to load chat messages from local storage
@@ -711,23 +736,26 @@ footer i:hover {
         });
 
         chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && chatInput.value.trim() !== '') {
-                const messageText = chatInput.value.trim();
-                const newMessage = { sender: 'You', text: messageText };
+    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+        const messageText = chatInput.value.trim();
+        const newMessage = { sender: '', text: messageText };
 
-                // Save the new message to local storage
-                saveChatMessage(currentContact, newMessage);
+        // Save the new message to local storage
+        saveChatMessage(currentContact, newMessage);
 
-                // Display the new message in the chat window
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
-                messageElement.innerHTML = `<strong>You:</strong> ${messageText}`;
-                chatMessages.appendChild(messageElement);
+        // Display the new message in the chat window
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'sent'); // Add 'sent' class
+        messageElement.innerHTML = `<strong>${k}</strong> ${messageText}`;
+        chatMessages.appendChild(messageElement);
 
-                // Clear the input field
-                chatInput.value = '';
-            }
-        });
+        // Scroll to the bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Clear the input field
+        chatInput.value = '';
+    }
+});
 
         // Back button event listener
         backButton.addEventListener('click', () => {
