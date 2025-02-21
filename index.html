@@ -296,7 +296,7 @@ footer i:hover {
         </div>
         <div id="body_scrol">
             <i class="bi bi-search Search"></i>
-            <input type="text" placeholder="Ask Meta AI or Search">
+            <input type="text" placeholder="Ask Meta AI or Search" id="search-input">
         </div>
         <ul>
             <li style="color:red;">All</li>
@@ -309,6 +309,7 @@ footer i:hover {
             <i class="bi bi-arrow-down-square"></i>&nbsp;&nbsp;
             <big>Archived</big>
         </div>
+    <div>
         <div class="contect">
             <div class="profile"><img src="p3.jpeg"></div>
             <h4 class="name">uk (you)</h4>
@@ -436,7 +437,7 @@ footer i:hover {
             <h4 class="name">Komal sister</h4>
             <small>7:49 PM</small>
         </div>
-
+</div>
 
          <div id="chat-icon" class="chat-icon">
        <i class="bi bi-chat-left-dots"></i>
@@ -456,26 +457,55 @@ footer i:hover {
     </div>
 
 
-        <footer>
-            <i class="bi bi-chat-right-text-fill"></i>
-            <i class="bi bi-broadcast"></i>
-            <i class="bi bi-person"></i>
-            <i class="bi bi-telephone"></i>
-        </footer>
+         <footer>
+        <i class="bi bi-chat-right-text-fill" id="home-icon"></i>
+        <i class="bi bi-broadcast" id="broadcast-icon"></i>
+        <i class="bi bi-person" id="contacts-icon"></i>
+        <i class="bi bi-telephone" id="calls-icon"></i>
+    </footer>
     </div>
    
 
 
    <script type="text/javascript">
        
- // Internal JavaScript
+
+    //this is the code of the serach input model
+
+ 
+
+
+
+// Add event listener to the search input field
+document.getElementById('search-input').addEventListener('input', function(event) {
+    const searchTerm = event.target.value.toLowerCase();  
+    const contacts = document.querySelectorAll('.contect');  
+
+    contacts.forEach(contact => {
+        const name = contact.querySelector('.name').textContent.toLowerCase();   
+        if (name.includes(searchTerm)) {
+            contact.style.display = 'flex'; 
+            contact.style.opacity = '1';  
+            contact.style.height = 'auto';  
+        } else {
+            contact.style.display = 'none';  
+            contact.style.height = '0';  
+            contact.style.opacity = '0';  
+        }
+    });
+});
+
+    
+
+
+//this is the code of the chat box model
 
         // Get elements
         const chatIcon = document.getElementById('chat-icon');
         const chatbot = document.getElementById('chatbot');
         const closeChat = document.getElementById('close-chat');
         const sendBtn = document.getElementById('send-btn');
-        const userInput = document.getElementById('user-input');
+        const userInput = document.  getElementById('user-input');
         const chatBody = document.getElementById('chat-body');
 
         // Toggle chat window visibility
