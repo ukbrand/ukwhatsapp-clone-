@@ -538,6 +538,127 @@ footer i:hover {
 
 
 
+
+
+
+/*===================================================================================*/
+
+/*.fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#closeImage {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}*/
+
+
+
+
+
+/*===================================================================================*/
+
+ #fullscreenModal .profile {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+       #fullscreenModal .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /*/*/* Full-screen modal styles */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+       .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #fullImage{
+
+            width: 100%;
+            height: 90vh;
+        }
+
+
+
+
+/*================================================================================*/
+
+#cameraPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        #cameraPopup video {
+            width: 100%;
+            max-width: 500px;
+        }
+        #closeCameraBtn {
+            display: block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+
+
+
+/*================================================================================*/
     </style>
 </head>
 <body>
@@ -546,7 +667,7 @@ footer i:hover {
             <span>WhatsApp</span>
             <div>
                 <i class="bi bi-qr-code-scan st"></i>
-                <i class="bi bi-camera st"></i>
+                <i class="bi bi-camera st" id="openCameraBtn"></i>
                 <!-- <i id="camera-icon" class="bi bi-camera st"></i> -->
                 <i class="bi bi-three-dots-vertical st"></i>
             </div>
@@ -566,6 +687,11 @@ footer i:hover {
             <i class="bi bi-arrow-down-square"></i>&nbsp;&nbsp;
             <big>Archived</big>
         </div>
+
+
+
+
+
     <div>
         <div class="contect"  data-contact="uk (you)" >
             <div class="profile"><img src="p3.jpeg"></div>
@@ -573,77 +699,77 @@ footer i:hover {
             <small>7:49 PM</small>
         </div>
         <div class="contect" data-contact="Sakshi">
-    <div class="profile"><img src="p2.jpeg"></div>
-    <h4 class="name">Sakshi</h4>
-    <small>7:49 PM</small>
-</div>
+            <div class="profile"><img src="p2.jpeg"></div>
+            <h4 class="name">Sakshi</h4>
+            <small>7:49 PM</small>
+        </div>
 
-<div class="contect" data-contact="Vikas G">
-    <div class="profile"><img src="p4.jpeg"></div>
-    <h4 class="name">Vikas G</h4>
-    <small>7:49 PM</small>
-</div>
+        <div class="contect" data-contact="Vikas G">
+            <div class="profile"><img src="p4.jpeg"></div>
+            <h4 class="name">Vikas G</h4>
+            <small>7:49 PM</small>
+        </div>
 
-<div class="contect" data-contact="Sagar M">
-    <div class="profile"><img src="p5.jpeg"></div>
-    <h4 class="name">Sagar M</h4>
-    <small>7:49 PM</small>
-</div>
+        <div class="contect" data-contact="Sagar M">
+            <div class="profile"><img src="p5.jpeg"></div>
+            <h4 class="name">Sagar M</h4>
+            <small>7:49 PM</small>
+        </div>
 
-<div class="contect" data-contact="Sister KS">
-    <div class="profile"><img src="p6.jpeg"></div>
-    <h4 class="name">Sister KS</h4>
-    <small>7:49 PM</small>
-</div>
+        <div class="contect" data-contact="Sister KS">
+            <div class="profile"><img src="p6.jpeg"></div>
+            <h4 class="name">Sister KS</h4>
+            <small>7:49 PM</small>
+        </div>
 
-<div class="contect" data-contact="Komal sister">
-    <div class="profile"><img src="p6.jpeg"></div>
-    <h4 class="name">Komal sister</h4>
-    <small>7:49 PM</small>
-</div>
+        <div class="contect" data-contact="Komal sister">
+            <div class="profile"><img src="p6.jpeg"></div>
+            <h4 class="name">Komal sister</h4>
+            <small>7:49 PM</small>
+        </div>
 
-<div class="contect" data-contact="Aarav Sharma">
-    <div class="profile"><img src="g1.jpg" alt="Aarav Sharma"></div>
-    <h4 class="name">Aarav Sharma</h4>
-    <small>6:18 PM</small>
-</div>
+        <div class="contect" data-contact="Aarav Sharma">
+            <div class="profile"><img src="g1.jpg" alt="Aarav Sharma"></div>
+            <h4 class="name">Aarav Sharma</h4>
+            <small>6:18 PM</small>
+        </div>
 
-<div class="contect" data-contact="Ananya Patel">
-    <div class="profile"><img src="g2.jpg" alt="Ananya Patel"></div>
-    <h4 class="name">Ananya Patel</h4>
-    <small>9:03 PM</small>
-</div>
+        <div class="contect" data-contact="Ananya Patel">
+            <div class="profile"><img src="g2.jpg" alt="Ananya Patel"></div>
+            <h4 class="name">Ananya Patel</h4>
+            <small>9:03 PM</small>
+        </div>
 
-<div class="contect" data-contact="Neha Kapoor">
-    <div class="profile"><img src="g3.jpg" alt="Neha Kapoor"></div>
-    <h4 class="name">Neha Kapoor</h4>
-    <small>6:55 PM</small>
-</div>
+        <div class="contect" data-contact="Neha Kapoor">
+            <div class="profile"><img src="g3.jpg" alt="Neha Kapoor"></div>
+            <h4 class="name">Neha Kapoor</h4>
+            <small>6:55 PM</small>
+        </div>
 
-<div class="contect" data-contact="Priya Rao">
-    <div class="profile"><img src="g4.jpg" alt="Priya Rao"></div>
-    <h4 class="name">Priya Rao</h4>
-    <small>8:22 PM</small>
-</div>
+        <div class="contect" data-contact="Priya Rao">
+            <div class="profile"><img src="g4.jpg" alt="Priya Rao"></div>
+            <h4 class="name">Priya Rao</h4>
+            <small>8:22 PM</small>
+        </div>
 
-<div class="contect" data-contact="Shivani Verma">
-    <div class="profile"><img src="g5.jpg" alt="Shivani Verma"></div>
-    <h4 class="name">Shivani Verma</h4>
-    <small>7:40 PM</small>
-</div>
+        <div class="contect" data-contact="Shivani Verma">
+            <div class="profile"><img src="g5.jpg" alt="Shivani Verma"></div>
+            <h4 class="name">Shivani Verma</h4>
+            <small>7:40 PM</small>
+        </div>
 
-<div class="contect" data-contact="uk (you)">
-    <div class="profile"><img src="p3.jpeg"></div>
-    <h4 class="name">uk (you)</h4>
-    <small>7:49 PM</small>
-</div>
+        <div class="contect" data-contact="uk (you)">
+            <div class="profile"><img src="p3.jpeg"></div>
+            <h4 class="name">uk (you)</h4>
+            <small>7:49 PM</small>
+        </div>
 
          
  
  
 </div>
 
-         <div id="chat-icon" class="chat-icon">
+    <div id="chat-icon" class="chat-icon">
        <i class="bi bi-chat-left-dots"></i>
     </div>
 
@@ -661,17 +787,39 @@ footer i:hover {
     </div>
  </div>
 
+
+
+
+
+
+
  <div id="chatContainer">
         <div class="header">
             <button id="backButton" class="back-button"><i class="bi bi-arrow-left-short"></i></button>
             <div class="profile">
-                <img src="" id="chatProfile" alt="Profile">
+                <img src="#" id="chatProfile" alt="Profile">
             </div>
+
+             <div id="fullscreenModal" class="fullscreen-modal" style="cursor: pointer;">
+             <span class="close" onclick="closeModal()">&times;</span>
+             <img id="fullImage" id="chatProfile" src="#" style="z-index: 999;">
+            
+             </div>
+
             <div id="chatContactName"></div>
         </div>
         <div class="messages" id="chatMessages"></div>
         <input type="text" placeholder="Type a message..." id="chatInput">
     </div>
+
+
+
+ <div id="cameraPopup">
+        <video id="cameraFeed" autoplay playsinline></video>
+        <button id="closeCameraBtn">Close</button>
+    </div>
+
+
 
      <footer>
         <i class="bi bi-chat-right-text-fill" id="home-icon"></i>
@@ -833,6 +981,75 @@ document.getElementById('search-input').addEventListener('input', function(event
 
 
 
+
+
+
+
+
+
+
+
+
+
+   
+        
+            document.getElementById('chatProfile').addEventListener('click', function() {
+            const imgSrc = this.src;
+            const fullScreenModal = document.getElementById('fullscreenModal');
+            const fullImage = document.getElementById('fullImage');
+
+            fullImage.src = imgSrc;
+            fullScreenModal.style.display = 'flex';
+        });
+
+        function closeModal() {
+            document.getElementById('fullscreenModal').style.display = 'none';
+        }
+
+
+
+          
+
+
+
+
+
+
+
+
+
+          // camera code
+
+
+          document.getElementById('openCameraBtn').addEventListener('click', async () => {
+            const video = document.getElementById('cameraFeed');
+            const popup = document.getElementById('cameraPopup');
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('Camera access is not supported in this browser.');
+                return;
+            }
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+                video.srcObject = stream;
+                popup.style.display = 'block';
+            } catch (err) {
+                console.error('Error accessing camera:', err);
+                alert('Could not access camera. Please check permissions, ensure you are using HTTPS, and that no other application is using the camera.');
+            }
+        });
+
+        document.getElementById('closeCameraBtn').addEventListener('click', () => {
+            const video = document.getElementById('cameraFeed');
+            const popup = document.getElementById('cameraPopup');
+            if (video.srcObject) {
+                let tracks = video.srcObject.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null;
+            }
+            popup.style.display = 'none';
+            window.history.back();
+        });
+ 
    </script>
 </body>
 </html>
